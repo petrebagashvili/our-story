@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Journey ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 50% 20%, #101936 0%, #050816 45%, #02030a 100%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   STAR BACKGROUND
+========================================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   SHOOTING STARS
+========================================= */
+
+.shooting-star {
+    position: fixed;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        white
+    );
+    transform: rotate(-35deg);
+    opacity: 0;
+    z-index: -1;
+    animation: shooting 8s linear infinite;
+}
+
+.shooting-star:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.shooting-star:nth-child(2) {
+    top: 50%;
+    left: 70%;
+    animation-delay: 6s;
+}
+
+@keyframes shooting {
+    0% {
+        transform: translate(0, 0) rotate(-35deg);
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    15% {
+        transform: translate(500px, 300px) rotate(-35deg);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(45px, 9vw, 100px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(32px, 6vw, 60px);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.9;
+    color: #d8d9e8;
+}
+
+button {
+    margin-top: 35px;
+    padding: 15px 34px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s,
+        transform 0.4s,
+        box-shadow 0.4s;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+#intro {
+    flex-direction: column;
+}
+
+.intro-small {
+    font-size: 15px;
+    color: #aaaec9;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.heart {
+    font-size: 48px;
+    margin: 30px 0;
+    animation: heartbeat 1.7s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.18);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+}
+
+.scroll {
+    margin-top: 70px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #777b99;
+}
+
+/* =========================================
+   CHAPTER ANIMATION
+========================================= */
+
+.chapter {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
+}
+
+.chapter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   YEAR
+========================================= */
+
+.year {
+    color: #9ca8ff;
+    font-size: 17px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   MEMORY
+========================================= */
+
+.memory-box {
+    max-width: 650px;
+    margin: 45px auto;
+    padding: 35px;
+
+    background: rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,0.2);
+}
+
+.memory-box p {
+    font-size: 18px;
+}
+
+/* =========================================
+   TWO PATHS
+========================================= */
+
+.paths {
+    height: 330px;
+    position: relative;
+    margin: 45px auto;
+    max-width: 750px;
+}
+
+.person {
+    position: absolute;
+    top: 10px;
+    font-size: 19px;
+}
+
+.you {
+    left: 5%;
+}
+
+.her {
+    right: 5%;
+}
+
+.path {
+    position: absolute;
+    width: 48%;
+    height: 200px;
+
+    border-bottom:
+        2px solid rgba(255,255,255,0.35);
+
+    border-radius: 50%;
+}
+
+.you-path {
+    left: 0;
+    transform: rotate(14deg);
+}
+
+.her-path {
+    right: 0;
+    transform: rotate(-14deg);
+}
+
+.missed-heart {
+    position: absolute;
+
+    left: 50%;
+    top: 140px;
+
+    transform: translateX(-50%);
+
+    font-size: 38px;
+
+    animation: floatingHeart 2s infinite ease-in-out;
+}
+
+@keyframes floatingHeart {
+    0%, 100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-12px);
+    }
+}
+
+/* =========================================
+   BIG HEART
+========================================= */
+
+.big-heart {
+    font-size: 110px;
+    margin-bottom: 30px;
+    animation: heartbeat 1.8s infinite;
+}
+
+/* =========================================
+   TREE
+========================================= */
+
+.tree {
+    font-size: 130px;
+    margin: 35px 0;
+
+    filter:
+        drop-shadow(0 0 25px rgba(255,255,255,0.12));
+
+    animation:
+        treeFloat 4s infinite ease-in-out;
+}
+
+@keyframes treeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* =========================================
+   CONSTELLATION
+========================================= */
+
+.constellation {
+    position: relative;
+
+    width: 100%;
+    max-width: 750px;
+
+    height: 450px;
+
+    margin: 40px auto;
+}
+
+.constellation-star {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px white,
+        0 0 25px rgba(255,255,255,0.7);
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.constellation-star:hover {
+    transform: scale(2.5);
+}
+
+.constellation-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    transform-origin: left center;
+}
+
+/* =========================================
+   STAR POPUP
+========================================= */
+
+.star-message {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    width: min(500px, 90%);
+
+    padding: 40px 30px;
+
+    background:
+        rgba(7, 11, 32, 0.96);
+
+    border:
+        1px solid rgba(255,255,255,0.18);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s;
+
+    z-index: 100;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+}
+
+.star-message.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+.star-message h3 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon {
+    width: 190px;
+    height: 190px;
+
+    margin:
+        10px auto 45px;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #ffffff 0%,
+            #e1e3ed 48%,
+            #adb2c7 100%
+        );
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,0.35),
+        0 0 90px rgba(150,160,255,0.2);
+
+    transition: 0.5s;
+
+    position: relative;
+}
+
+.moon::before,
+.moon::after {
+    content: "";
+
+    position: absolute;
+
+    background:
+        rgba(130,135,155,0.15);
+
+    border-radius: 50%;
+}
+
+.moon::before {
+    width: 35px;
+    height: 35px;
+    top: 35px;
+    left: 45px;
+}
+
+.moon::after {
+    width: 25px;
+    height: 25px;
+    top: 95px;
+    left: 105px;
+}
+
+.moon:hover {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 60px rgba(255,255,255,0.6),
+        0 0 120px rgba(150,160,255,0.35);
+}
+
+/* =========================================
+   HIDDEN FINAL MESSAGE
+========================================= */
+
+.hidden-message {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 2s ease,
+        opacity 1.5s ease;
+}
+
+.hidden-message.show {
+    max-height: 1500px;
+    opacity: 1;
+}
+
+/* =========================================
+   FINAL HEART
+========================================= */
+
+.final-heart {
+    font-size: 55px;
+    margin: 35px 0;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question {
+    margin-top: 90px;
+
+    padding:
+        60px 25px 40px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.15);
+}
+
+.question-line {
+    width: 60px;
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.5);
+
+    margin:
+        0 auto 40px;
+}
+
+.question-intro {
+    color: #aeb1c9;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+}
+
+.ask {
+    margin-top: 25px;
+
+    font-size:
+        clamp(30px, 6vw, 55px);
+
+    line-height: 1.35;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,0.1);
+}
+
+.small-text {
+    margin-top: 30px;
+
+    font-size: 14px;
+
+    color: #777b99;
+
+    line-height: 1.9;
+}
+
+.answer-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+}
+
+.answer-buttons button {
+    margin-top: 0;
+}
+
+.yes-button {
+    border-color:
+        rgba(255,130,150,0.5);
+
+    background:
+        rgba(255,80,120,0.08);
+}
+
+.yes-button:hover {
+    background:
+        rgba(255,80,120,0.2);
+
+    box-shadow:
+        0 0 35px rgba(255,80,120,0.15);
+}
+
+.future-button {
+    border-color:
+        rgba(150,160,255,0.45);
+}
+
+.future-button:hover {
+    background:
+        rgba(120,130,255,0.15);
+}
+
+#answerMessage {
+    margin-top: 45px;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    color: #e4e5f2;
+
+    min-height: 20px;
+}
+
+.answer-heart {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.signature {
+    margin-top: 35px;
+
+    color: #9ca8ff;
+
+    font-style: italic;
+
+    font-size: 18px;
+}
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+.music-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 20;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    section {
+        padding:
+            50px 18px;
+    }
+
+    .paths {
+        height: 360px;
+    }
+
+    .person {
+        font-size: 16px;
+    }
+
+    .you {
+        left: 0;
+    }
+
+    .her {
+        right: 0;
+    }
+
+    .path {
+        width: 45%;
+    }
+
+    .tree {
+        font-size: 100px;
+    }
+
+    .moon {
+        width: 160px;
+        height: 160px;
+    }
+
+    .answer-buttons {
+        flex-direction: column;
+    }
+
+    .answer-buttons button {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     BACKGROUND STARS
+========================================= -->
+
+<div class="stars" id="stars"></div>
+
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+
+<!-- =========================================
+     MUSIC
+========================================= -->
+
+<button
+    class="music-button"
+    onclick="toggleMusic()"
+    id="musicButton">
+
+    ♫
+
+</button>
+
+<!--
+    If you want music:
+
+    1. Put music.mp3 in the same folder as index.html.
+    2. Uncomment the line below.
+
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+-->
+
+<audio id="music" loop></audio>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section id="intro">
+
+    <div class="container">
+
+        <div class="intro-small">
+            A story about two people
+        </div>
+
+        <h1>
+            Our Journey
+        </h1>
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <p>
+            Sometimes the most beautiful stories
+            don't happen at the right time.
+        </p>
+
+        <button onclick="scrollToSection('beginning')">
+            Start our story →
+        </button>
+
+        <div class="scroll">
+            ↓ SCROLL TO BEGIN ↓
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOUR YEARS AGO
+========================================= -->
+
+<section id="beginning">
+
+    <div class="container chapter">
+
+        <div class="year">
+            FOUR YEARS AGO
+        </div>
+
+        <h2>
+            The Beginning
+        </h2>
+
+        <div class="memory-box">
+
+            <p>
+                Four years ago, I met you.
+            </p>
+
+            <br>
+
+            <p>
+                I didn't know it at the time,
+                but meeting you was going to become
+                one of the most important moments
+                of my life.
+            </p>
+
+            <br>
+
+            <p>
+                I didn't know where our story would go.
+            </p>
+
+            <br>
+
+            <p>
+                I didn't know that one day
+                I would be sitting here,
+                trying to find the right words
+                to tell you how much I love you.
+            </p>
+
+        </div>
+
+        <button onclick="scrollToSection('missed')">
+            Continue our story →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     TWO YEARS AGO
+========================================= -->
+
+<section id="missed">
+
+    <div class="container chapter">
+
+        <div class="year">
+            TWO YEARS AGO
+        </div>
+
+        <h2>
+            The Moment We Missed
+        </h2>
+
+        <div class="memory-box">
+
+            <p>
+                Two years ago,
+                something happened
+                that I didn't know about.
+            </p>
+
+            <br>
+
+            <p>
+                You had fallen in love with me.
+            </p>
+
+            <br>
+
+            <p>
+                And somehow...
+                I didn't know.
+            </p>
+
+        </div>
+
+        <div class="paths">
+
+            <div class="person you">
+                Me ❤️
+            </div>
+
+            <div class="person her">
+                You ❤️
+            </div>
+
+            <div class="path you-path"></div>
+
+            <div class="path her-path"></div>
+
+            <div class="missed-heart">
+                💔
+            </div>
+
+        </div>
+
+        <p>
+            We were so close to finding each other...
+        </p>
+
+        <br>
+
+        <p>
+            But somehow,
+            we missed the moment.
+        </p>
+
+        <br>
+
+        <p>
+            Maybe the timing wasn't right.
+        </p>
+
+        <button onclick="scrollToSection('today')">
+            And then came today →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     TODAY
+========================================= -->
+
+<section id="today">
+
+    <div class="container chapter">
+
+        <div class="year">
+            TODAY
+        </div>
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>
+            Now You Know
+        </h2>
+
+        <div class="memory-box">
+
+            <p>
+                Now you know what I feel.
+            </p>
+
+            <br>
+
+            <p>
+                I love you.
+            </p>
+
+            <br>
+
+            <p>
+                I don't want to hide it anymore.
+            </p>
+
+            <br>
+
+            <p>
+                But I also don't want to ask you
+                for an answer you're not ready to give.
+            </p>
+
+            <br>
+
+            <p>
+                You told me that
+                <strong>the future will show us.</strong>
+            </p>
+
+        </div>
+
+        <button onclick="scrollToSection('future')">
+            So let's talk about the future →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FUTURE
+========================================= -->
+
+<section id="future">
+
+    <div class="container chapter">
+
+        <div class="year">
+            THE FUTURE
+        </div>
+
+        <h2>
+            I Don't Want To Force It
+        </h2>
+
+        <div class="tree">
+            🌱
+        </div>
+
+        <div class="memory-box">
+
+            <p>
+                I don't want to convince you to love me.
+            </p>
+
+            <br>
+
+            <p>
+                I don't want to pressure you
+                into becoming my girlfriend.
+            </p>
+
+            <br>
+
+            <p>
+                I just want to give us the chance
+                to discover what we could become.
+            </p>
+
+            <br>
+
+            <p>
+                Some things can't be rushed.
+                They have to grow.
+            </p>
+
+            <br>
+
+            <p>
+                And maybe...
+                we should let ours grow naturally.
+            </p>
+
+        </div>
+
+        <button onclick="scrollToSection('starsSection')">
+            There is something I want to show you →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     OUR UNIVERSE
+========================================= -->
+
+<section id="starsSection">
+
+    <div class="container chapter">
+
+        <div class="year">
+            THE THINGS I LOVE
+        </div>
+
+        <h2>
+            Our Little Universe
+        </h2>
+
+        <p>
+            Every star has something
+            I want you to know.
+        </p>
+
+        <div class="constellation">
+
+            <!-- STARS -->
+
+            <div
+                class="constellation-star"
+                style="left: 15%; top: 20%;"
+                onclick="showStar('Your smile')">
+            </div>
+
+            <div
+                class="constellation-star"
+                style="left: 40%; top: 35%;"
+                onclick="showStar('The way you make me feel')">
+            </div>
+
+            <div
+                class="constellation-star"
+                style="left: 70%; top: 15%;"
+                onclick="showStar('The person you are')">
+            </div>
+
+            <div
+                class="constellation-star"
+                style="left: 30%; top: 70%;"
+                onclick="showStar('The moments we have shared')">
+            </div>
+
+            <div
+                class="constellation-star"
+                style="left: 80%; top: 65%;"
+                onclick="showStar('The future I can imagine with you')">
+            </div>
+
+            <div
+                class="constellation-star"
+                style="left: 55%; top: 80%;"
+                onclick="showStar('Simply... you')">
+            </div>
+
+        </div>
+
+        <button onclick="scrollToSection('final')">
+            One last thing... →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     STAR POPUP
+========================================= -->
+
+<div
+    class="star-message"
+    id="starMessage">
+
+    <h3 id="starTitle"></h3>
+
+    <p id="starText"></p>
+
+    <button
+        onclick="closeStar()">
+
+        Close
+
+    </button>
+
+</div>
+
+
+<!-- =========================================
+     FINAL
+========================================= -->
+
+<section id="final">
+
+    <div class="container chapter">
+
+        <div class="year">
+            ONE LAST THING
+        </div>
+
+        <h2>
+            Maybe This Isn't The End
+        </h2>
+
+        <!-- MOON -->
+
+        <div
+            class="moon"
+            onclick="openMoon()">
+        </div>
+
+        <p>
+            Click the moon.
+        </p>
+
+
+        <!-- =====================================
+             FINAL MESSAGE
+        ====================================== -->
+
+        <div
+            class="hidden-message"
+            id="moonMessage">
+
+            <br>
+
+            <p>
+                I don't know what tomorrow will bring.
+            </p>
+
+            <br>
+
+            <p>
+                Neither do you.
+            </p>
+
+            <br>
+
+            <p>
+                And that's okay.
+            </p>
+
+            <br>
+
+            <p>
+                Four years ago,
+                I met you.
+            </p>
+
+            <br>
+
+            <p>
+                Two years ago,
+                somehow,
+                we missed each other.
+            </p>
+
+            <br>
+
+            <p>
+                Today,
+                you know how I feel.
+            </p>
+
+            <br>
+
+            <p>
+                And tomorrow...
+            </p>
+
+            <br>
+
+            <h2>
+                We'll see.
+            </h2>
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <p class="signature">
+                Whatever the future shows us,
+                I'm grateful that our paths crossed.
+            </p>
+
+
+            <!-- =================================
+                 THE QUESTION
+            ================================= -->
+
+            <div class="question">
+
+                <div class="question-line"></div>
+
+                <p class="question-intro">
+                    But there is one thing
+                    I still want to ask you...
+                </p>
+
+                <h2 class="ask">
+                    Will you give us a chance...
+                    <br>
+                    and let me be your boyfriend?
+                </h2>
+
+                <p class="small-text">
+                    You don't have to answer because
+                    of this website.
+                    <br>
+                    I just wanted you to know
+                    what my heart is asking.
+                </p>
+
+                <div class="answer-buttons">
+
+                    <button
+                        class="yes-button"
+                        onclick="answer('yes')">
+
+                        ❤️ Yes, I'll give us a chance
+
+                    </button>
+
+                    <button
+                        class="future-button"
+                        onclick="answer('future')">
+
+                        🌙 Let the future show us
+
+                    </button>
+
+                </div>
+
+                <div id="answerMessage"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================
+   CREATE BACKGROUND STARS
+========================================= */
+
+const starsContainer =
+    document.getElementById("stars");
+
+for (let i = 0; i < 180; i++) {
+
+    const star =
+        document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    const size =
+        Math.random() * 3 + 1;
+
+    star.style.width =
+        size + "px";
+
+    star.style.height =
+        size + "px";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =========================================
+   SMOOTH SCROLL
+========================================= */
+
+function scrollToSection(id) {
+
+    const section =
+        document.getElementById(id);
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================
+   CHAPTER ANIMATIONS
+========================================= */
+
+const chapters =
+    document.querySelectorAll(".chapter");
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+chapters.forEach(chapter => {
+
+    observer.observe(chapter);
+
+});
+
+
+/* =========================================
+   STAR MESSAGES
+========================================= */
+
+const messages = {
+
+    "Your smile":
+        "There is something about your smile that can completely change my day.",
+
+    "The way you make me feel":
+        "You make me feel things that are difficult to explain with words.",
+
+    "The person you are":
+        "I don't only love the way you look. I admire the person you are.",
+
+    "The moments we have shared":
+        "Even the small moments became memories that I don't want to forget.",
+
+    "The future I can imagine with you":
+        "I don't know what the future will bring, but sometimes I catch myself imagining you in it.",
+
+    "Simply... you":
+        "Out of all the people in this enormous world, somehow I met you. And I'm grateful for that."
+};
+
+
+function showStar(title) {
+
+    document.getElementById("starTitle")
+        .textContent = title;
+
+    document.getElementById("starText")
+        .textContent = messages[title];
+
+    document.getElementById("starMessage")
+        .classList.add("active");
+}
+
+
+function closeStar() {
+
+    document.getElementById("starMessage")
+        .classList.remove("active");
+}
+
+
+/* =========================================
+   MOON
+========================================= */
+
+function openMoon() {
+
+    const message =
+        document.getElementById("moonMessage");
+
+    message.classList.toggle("show");
+
+}
+
+
+/* =========================================
+   ANSWER
+========================================= */
+
+function answer(type) {
+
+    const message =
+        document.getElementById("answerMessage");
+
+
+    if (type === "yes") {
+
+        message.innerHTML = `
+
+            <div class="answer-heart">
+                ❤️
+            </div>
+
+            <p>
+                Then maybe this is where
+                our next chapter begins.
+            </p>
+
+            <br>
+
+            <p>
+                No more missed moments.
+                <br>
+                Just you and me,
+                taking this one step at a time.
+            </p>
+
+        `;
+
+    }
+
+
+    else {
+
+        message.innerHTML = `
+
+            <div class="answer-heart">
+                🌙
+            </div>
+
+            <p>
+                Then I'll respect that.
+            </p>
+
+            <br>
+
+            <p>
+                I don't need to force the future.
+                <br>
+                I'll let it show us where we belong.
+            </p>
+
+            <br>
+
+            <p>
+                And whatever happens,
+                I'm glad I finally told you
+                how I feel.
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+let musicPlaying = false;
+
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.getElementById("musicButton");
+
+
+    /*
+        To use music:
+
+        Put music.mp3 next to index.html.
+
+        Then add:
+
+        <source src="music.mp3"
+                type="audio/mpeg">
+
+        inside the audio element.
+    */
+
+
+    if (!music.src) {
+
+        alert(
+            "To add music, put a file named music.mp3 next to index.html."
+        );
+
+        return;
+
+    }
+
+
+    if (musicPlaying) {
+
+        music.pause();
+
+        button.textContent = "♫";
+
+        musicPlaying = false;
+
+    }
+
+    else {
+
+        music.play();
+
+        button.textContent = "❚❚";
+
+        musicPlaying = true;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
